@@ -1,10 +1,10 @@
 import express from "express";
 import { Owner } from "../model/owner.model.js";
-import { Cow } from "../model/cow.model.js";
+import { Animal } from "../model/cowbull.model.js";  // Using the Animal model
 
 const router = express.Router();
 
-
+// Route to add a new owner (unchanged)
 router.post("/add", async (req, res) => {
   try {
     const { name, email, contact, address } = req.body;
@@ -33,26 +33,46 @@ router.post("/add", async (req, res) => {
   }
 });
 
-
+// Route to get all cows for a specific owner
 router.get("/:ownerId/cows", async (req, res) => {
-    try {
-      const { ownerId } = req.params;
-  
-      // Check if owner exists
-      const owner = await Owner.findById(ownerId);
-      if (!owner) {
-        return res.status(404).json({ message: "Owner not found" });
-      }
-  
-      // Fetch all cows that belong to the owner
-      const cows = await Cow.find({ ownerId });
-  
-      res.status(200).json(cows);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Internal server error" });
-    }
-  });
+  try {
+    const { ownerId } = req.params;
 
+    // Check if owner exists
+    const owner = await Owner.findById(ownerId);
+    if (!owner) {
+      return res.status(404).json({ message: "Owner not found" });
+    }
+
+    // Fetch all cows (animals where animalType is 'cow') that belong to the owner
+    const cows = await Animal.find({ ownerId, animalType: 'cow' });
+
+    res.status(200).json(cows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Route to get all bulls for a specific owner
+router.get("/:ownerId/bulls", async (req, res) => {
+  try {
+    const { ownerId } = req.params;
+
+    // Check if owner exists
+    const owner = await Owner.findById(ownerId);
+    if (!owner) {
+      return res.status(404).json({ message: "Owner not found" });
+    }
+
+    // Fetch all bulls (animals where animalType is 'bull') that belong to the owner
+    const bulls = await Animal.find({ ownerId, animalType: 'bull' });
+
+    res.status(200).json(bulls);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 export default router;
