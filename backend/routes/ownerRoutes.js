@@ -1,6 +1,7 @@
 import express from "express";
 import { Owner } from "../model/owner.model.js";
 import { Animal } from "../model/cowbull.model.js";  // Using the Animal model
+import { checkCompatibility } from "../model/services/geminiService.js";  // Import the compatibility check function
 
 const router = express.Router();
 
@@ -74,5 +75,34 @@ router.get("/:ownerId/bulls", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+
+router.get("/:cowid/:bullid/compat", async (req, res) => {
+  try {
+    const { cowid, bullid } = req.params;
+
+    // Find the cow and bull by ID
+    const cow = await Animal.findById(cowid);
+    const bull = await Animal.findById(bullid);
+console.log(cow);
+console.log(bull);
+    if (!cow || cow.animalType !== 'cow') {
+      return res.status(404).json({ message: "Cow not found" });
+    }
+
+    if (!bull || bull.animalType !== 'bull') {
+      return res.status(404).json({ message: "Bull not found" });
+    }
+
+    // Check compatibility
+    const compatibility = await checkCompatibility(cow, bull);
+
+    res.status(200).json({ cow, bull, compatibility });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 
 export default router;

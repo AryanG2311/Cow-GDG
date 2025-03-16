@@ -8,6 +8,8 @@ import About from './pages/About';
 import Allcows from './pages/Allcows';
 import Main from './pages/Main';
 import 'react-toastify/dist/ReactToastify.css';
+import CompatibilityTest from './pages/Compatiblity';
+import CompatibilityDetails from './pages/CompatiblityDtails';
 
 function App() {
   return (
@@ -21,7 +23,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/allcows" element={<Allcows />} />
             <Route path="/Main/:cowId" element={<Main />} />
-
+            <Route path="/compatability" element={<CompatibilityTest />} />
+            <Route path="/compatibility-details/:cowId/:bullId" element={<CompatibilityDetails/>} />
 
           </Routes>
         </main>
