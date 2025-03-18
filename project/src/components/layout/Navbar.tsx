@@ -39,6 +39,18 @@ const Navbar = () => {
             >
               About
             </Link>
+            <Link
+              to="/news"
+              className="text-gray-700 hover:text-primary transition-colors duration-300"
+            >
+              News
+            </Link>
+            <Link
+              to="/quiz"
+              className="text-gray-700 hover:text-primary transition-colors duration-300"
+            >
+              Quiz
+            </Link>
           </div>
         </div>
       </div>

@@ -10,6 +10,8 @@ import Main from './pages/Main';
 import 'react-toastify/dist/ReactToastify.css';
 import CompatibilityTest from './pages/Compatiblity';
 import CompatibilityDetails from './pages/CompatiblityDtails';
+import News from './pages/News';
+import Quiz from './pages/Quiz';
 
 function App() {
   return (
@@ -25,7 +27,8 @@ function App() {
             <Route path="/Main/:cowId" element={<Main />} />
             <Route path="/compatability" element={<CompatibilityTest />} />
             <Route path="/compatibility-details/:cowId/:bullId" element={<CompatibilityDetails/>} />
-
+            <Route path='/news' element={<News />} />
+            <Route path='/quiz' element={<Quiz />} />
           </Routes>
         </main>
         <Footer />
