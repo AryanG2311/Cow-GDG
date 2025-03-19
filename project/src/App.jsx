@@ -12,10 +12,15 @@ import CompatibilityTest from './pages/Compatiblity';
 import CompatibilityDetails from './pages/CompatiblityDtails';
 import News from './pages/News';
 import Quiz from './pages/Quiz';
+import {Provider} from "react-redux";
+import {store} from "./store/store";
+import SignUp from "./pages/signUp";
+import SignIn from "./pages/signIn";
 
 function App() {
   return (
-    <Router>
+    <Provider store={store}>
+      <Router>
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow">
@@ -29,12 +34,15 @@ function App() {
             <Route path="/compatibility-details/:cowId/:bullId" element={<CompatibilityDetails/>} />
             <Route path='/news' element={<News />} />
             <Route path='/quiz' element={<Quiz />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/signIn" element={<SignIn />} />
           </Routes>
         </main>
         <Footer />
         <ToastContainer position="bottom-right" />
       </div>
     </Router>
+    </Provider>
   );
 }
 

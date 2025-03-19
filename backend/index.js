@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cowRoutes from "./routes/cowRoutes.js";
 import ownerRoutes from "./routes/ownerRoutes.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ app.use(cors({
   methods: "GET,POST,PUT,DELETE",
   credentials: true // Allow cookies if needed
 }));
+app.use(cookieParser());
 
 app.use("/api/cows", cowRoutes);
 app.use("/api/owners", ownerRoutes); 
