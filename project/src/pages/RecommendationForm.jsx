@@ -6,7 +6,7 @@ import Button from '../components/common/Button';
 import Input from '../components/common/Input';
 import Select from '../components/common/Select';
 import axios from 'axios';
-
+import ScrollProgressBar from '../components/common/ScrollBar';
 
 
 const RecommendationForm = () => {
@@ -336,6 +336,8 @@ const RecommendationForm = () => {
   };
 
   return (
+    <>
+    <ScrollProgressBar/>
     <div className="max-w-2xl mx-auto px-4 py-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -399,6 +401,8 @@ const RecommendationForm = () => {
         </form>
       </motion.div>
     </div>
+
+    </>
   );
 };
 

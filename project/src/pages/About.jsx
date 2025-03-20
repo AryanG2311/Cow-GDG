@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Award, Shield, Target } from 'lucide-react';
-
+import ScrollProgressBar from '../components/common/ScrollBar';
 const features = [
   {
     icon: Target,
@@ -21,6 +21,8 @@ const features = [
 
 const About = () => {
   return (
+    <>
+    <ScrollProgressBar/>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -55,6 +57,7 @@ const About = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 

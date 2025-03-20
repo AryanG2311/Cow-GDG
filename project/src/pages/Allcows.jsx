@@ -3,8 +3,7 @@ import { Cog as Cow } from 'lucide-react';
 import CowCard from '../components/CowCard';
 import { cows } from '../data/cows';
 import axios from 'axios';
-
-
+import ScrollProgressBar from '../components/common/ScrollBar';
 function Home() {
   const [allCows, setAllCows] = useState([]);
   useEffect(() => {
@@ -27,6 +26,8 @@ function Home() {
   
 
   return (
+    <>
+    <ScrollProgressBar/>
     <div className="min-h-screen bg-gray-50">
       
       {/* Main Content */}
@@ -39,6 +40,7 @@ function Home() {
         </div>
       </main>
     </div>
+    </>
   );
 }
 

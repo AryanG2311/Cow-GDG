@@ -11,15 +11,17 @@
   },
   "dependencies": {
     "@emotion/styled": "^11.14.0",
+    "@lucide/lab": "^0.1.2",
     "@mui/material": "^6.4.7",
     "@mui/styled-engine": "^6.4.6",
     "axios": "^1.8.2",
     "clsx": "^2.1.0",
-    "framer-motion": "^11.0.8",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.51.0",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^6.22.3",
     "react-toastify": "^10.0.4"
   },
@@ -38,5 +40,9 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
-  }
+  },
+  "main": "eslint.config.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

@@ -17,7 +17,7 @@ import {
   Loader2
 } from 'lucide-react';
 import axios from 'axios';
-
+import ScrollProgressBar from '../components/common/ScrollBar';
 const LoadingScreen = () => (
   <div className="min-h-[60vh] flex flex-col items-center justify-center">
     <div className="relative">
@@ -145,6 +145,9 @@ const BreedingRecommendation = () => {
   }
 
   return (
+    <>
+    <ScrollProgressBar/>
+    
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
@@ -306,6 +309,7 @@ const BreedingRecommendation = () => {
         </div>
       </main>
     </div>
+    </>
   );
 };
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Select from '../components/common/Select';
 import Button from '../components/common/Button';
 import { toast } from 'react-toastify';
-
+import ScrollProgressBar from '../components/common/ScrollBar';
 const CompatibilityTest = () => {
     const [cows, setCows] = useState([]);
     const [bulls, setBulls] = useState([]);
@@ -39,7 +39,8 @@ const CompatibilityTest = () => {
 
     return (
 
-
+        <>
+        <ScrollProgressBar/>
         <div className="max-w-2xl mx-auto px-4 py-8">
             <h1 className="text-2xl font-bold text-gray-900 mb-6">Compatibility Test</h1>
             <div className="space-y-6">
@@ -58,6 +59,7 @@ const CompatibilityTest = () => {
                 <Button onClick={handleCompatibilityTest}>Check Compatibility</Button>
             </div>
         </div>
+        </>
     );
 };
 

@@ -1,0 +1,386 @@
+/* Scroll Progress Bar */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+  }
+  
+  .scroll-progress-bar {
+    height: 100%;
+    background-color: #66bb6a; /* Lighter green for progress bar */
+    width: 0%;
+    transition: width 0.1s ease-out;
+  }
+  
+  /* Base styles */
+  .cow-breeding-portal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #444;
+    background-color: #f9f7f2;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+  }
+  
+  /* Header styles with animation */
+  .portal-header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #4caf50, #66bb6a); /* Lighter green gradient */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    animation: headerFadeIn 0.8s ease-in-out;
+  }
+  
+  @keyframes headerFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .portal-header h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Navigation styles */
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    flex-wrap: wrap;
+  }
+  
+  .main-nav li {
+    margin: 5px 10px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+  
+  .main-nav li:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+  }
+  
+  .main-nav li.active {
+    background-color: white;
+    color: #4caf50; /* Lighter green */
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Content section styles with animation */
+  .content-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    animation: contentFadeIn 0.6s ease-in-out;
+  }
+  
+  @keyframes contentFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .content-section h2 {
+    color: #4caf50; /* Lighter green */
+    border-bottom: 2px solid #81c784; /* Even lighter green for border */
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  
+  .content-section p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+  }
+  
+  /* Card styles with hover effect */
+  .info-card, .initiative-card, .technique-card {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    border-left: 5px solid #81c784; /* Lighter green */
+    transition: all 0.3s ease;
+  }
+  
+  .info-card:hover, .initiative-card:hover, .technique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f0f7f0;
+  }
+  
+  .info-card h3, .initiative-card h3, .technique-card h3 {
+    color: #4caf50; /* Lighter green */
+    margin-top: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  
+  .info-card a, .initiative-card a, .technique-card a {
+    color: #4caf50; /* Lighter green */
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+  }
+  
+  .info-card a:hover, .initiative-card a:hover, .technique-card a:hover {
+    color: #66bb6a; /* Even lighter green */
+    text-decoration: underline;
+  }
+  
+  /* Resource links styles */
+  .resource-links {
+    margin: 25px 0;
+  }
+  
+  .resource-links h3 {
+    color: #4caf50; /* Lighter green */
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  
+  .resource-links ul {
+    padding-left: 20px;
+  }
+  
+  .resource-links li {
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+    font-size: 1.05rem;
+  }
+  
+  .resource-links li:hover {
+    transform: translateX(5px);
+  }
+  
+  .resource-links a {
+    color: #4caf50; /* Lighter green */
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+  }
+  
+  .resource-links a:hover {
+    color: #2e7d32;
+    text-decoration: underline;
+  }
+  
+  /* Breed table styles */
+  .breed-table {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  
+  .breed-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .breed-table th {
+    background-color: #66bb6a; /* Lighter green */
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  
+  .breed-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+  }
+  
+  .breed-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .breed-table tr:hover {
+    background-color: #f0f7f0;
+  }
+  
+  /* Video section styles with animation */
+  .video-section {
+    margin: 40px 0;
+    animation: fadeInUp 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .video-section h2 {
+    color: #4caf50; /* Lighter green */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  
+  .video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .video-iframe-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .video-iframe-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .video-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Footer styles */
+  .portal-footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background-color: #4caf50; /* Lighter green */
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .main-nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .main-nav li {
+      margin: 5px 0;
+      width: 80%;
+      text-align: center;
+    }
+    
+    .video-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Tab transition animation */
+  .portal-content > div {
+    animation: tabTransition 0.5s ease-in-out;
+  }
+  
+  @keyframes tabTransition {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Interactive elements animation */
+  .breed-info ul li, .initiative-card ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  
+  .breed-info ul li:before, .initiative-card ul li:before {
+    content: "•";
+    color: #66bb6a; /* Lighter green */
+    position: absolute;
+    left: 0;
+    transition: all 0.2s ease;
+  }
+  
+  .breed-info ul li:hover, .initiative-card ul li:hover {
+    transform: translateX(5px);
+  }
+  
+  .breed-info ul li:hover:before, .initiative-card ul li:hover:before {
+    color: #4caf50; /* Lighter green */
+    transform: scale(1.2);
+  }
+  
+  /* Improved heading styles */
+  h3, h4 {
+    font-weight: 600;
+    color: #444;
+    margin-top: 1.2em;
+    margin-bottom: 0.8em;
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+    color: #555;
+  }

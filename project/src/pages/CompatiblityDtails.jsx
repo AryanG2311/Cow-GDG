@@ -27,7 +27,7 @@ import {
   Loader,
   ArrowLeft
 } from 'lucide-react';
-
+import ScrollProgressBar from '../components/common/ScrollBar';
 // Create axios instance with default config
 const api = axios.create({
   headers: {
@@ -190,6 +190,9 @@ console.log(response);
   }, [cowId, bullId]);
 
   return (
+    <>
+    <ScrollProgressBar/>
+   
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
@@ -338,6 +341,7 @@ console.log(response);
         )}
       </main>
     </div>
+    </>
   );
 };
 

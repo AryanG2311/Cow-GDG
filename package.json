@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "lucide-react": "^0.479.0"
-  }
+  },
+  "name": "cow-gdg",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000d\u0000e\u0000b\u0000u\u0000g\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
