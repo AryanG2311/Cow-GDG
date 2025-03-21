@@ -10,7 +10,7 @@ const router = express.Router();
 // Route to add a new owner (unchanged)
 router.post("/add", async (req, res) => {
   try {
-    const { name, email, contact, address } = req.body;
+    const { name, email, contact, address,password } = req.body;
 
     // Check if the owner already exists by email
     const existingOwner = await Owner.findOne({ email });
@@ -20,12 +20,14 @@ router.post("/add", async (req, res) => {
         .json({ message: "Owner with this email already exists" });
     }
 
+    const hashPassword = await bcrypt.hash(password,10);
     // Create new owner
     const newOwner = new Owner({
       name,
       email,
       contact,
       address,
+      password:hashPassword
     });
 
     const savedOwner = await newOwner.save();
@@ -41,7 +43,7 @@ router.post("/add", async (req, res) => {
 
 router.post("/signIn", async (req, res) => {
   try {
-    const { name, email } = req.body;
+    const { name, email,password } = req.body;
 
     if (!name || !email)
       return res.status(400).json({ message: "Please provide all detail" });
@@ -51,6 +53,10 @@ router.post("/signIn", async (req, res) => {
     if (!userExist)
       return res.status(400).json({ message: "Please add user first" });
 
+    const verifyPassword = bcrypt.compare(password,userExist.password);
+
+    if(!verifyPassword) return res.status(400).json({ message: "Please provide valid password" });
+    
     const userId = userExist._id;
     const token = jwt.sign(
       {

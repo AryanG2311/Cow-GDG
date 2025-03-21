@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const ownerSchema = new mongoose.Schema({
   name: { type: String, required: true },
+  password : {type:String,require:true},
   contact: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   address: { type: String },
