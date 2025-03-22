@@ -3,15 +3,29 @@ import { Cog as Cow } from 'lucide-react';
 import CowCard from '../components/CowCard';
 import { cows } from '../data/cows';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
+  const navigate = useNavigate();
   const [allCows, setAllCows] = useState([]);
+  const [user,setUser] = useState('');
+
   useEffect(() => {
+    ;(async () => {
+      try {
+        const userResponse = await axios.get(
+          "http://localhost:4200/api/owners/getOwnerDetsils"
+        );
+        setUser(userResponse.data.id);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
 
     async function fetchData() {
       try {
-        const response = await axios.get(`http://localhost:4200/api/owners/67cea83ff2074d36eff08c10/cows`);
+        const response = await axios.get(`http://localhost:4200/api/owners/${user}/cows`);
         console.log(response.data);
         
        if(response.status == "200")
@@ -22,7 +36,8 @@ function Home() {
       }
     }
 
-    fetchData();
+    if(user) fetchData();
+    else navigate("/signIn");
   }, []);
   
 
